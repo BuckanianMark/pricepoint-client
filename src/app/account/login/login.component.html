@@ -1,0 +1,49 @@
+<div class="flex  justify-center h-[50%] mt-5">
+    <form 
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+     class="bg-sensualLight2 rounded-lg md:w-[400px] flex items-center flex-col justify-center gap-6 w-[350px]">
+    <div class="flex flex-col gap-2 border-2 border-sensualMedium px-4 py-1 rounded-md ">
+        <label class="text-2xl text-sensualdark2 font-semibold">Email</label>
+        <input 
+        formControlName="email"  
+        type="email"  
+        placeholder="Your email.." 
+        name="email" 
+        class="py-2 px-4 rounded-sm bg-sensualMedium focus:border-b-2 text-blue focus:border-blue">
+        <span 
+        class="text-red-700 text-[14px] font-mono font-bold "
+        *ngIf="loginForm.get('email')?.invalid  && 
+        loginForm.get('email')?.touched &&
+        loginForm.get('email')?.errors?.['required']">
+        <i class="fa-regular fa-circle-xmark"></i> Email is a required field</span>
+        <span
+        id="emailerror"
+        class="text-red-700 text-[14px] font-mono font-bold "
+        *ngIf="loginForm.get('email')?.errors?.['email']">
+        <i class="fa-regular fa-circle-xmark"></i> Email is not valid
+        </span>
+    </div>
+    <div  class="flex flex-col gap-2 border-2 border-sensualMedium px-4 py-1 rounded-md ">
+        <label class="text-2xl text-sensualdark2 font-semibold">Password</label>
+        <input 
+        formControlName="password"  
+        type="password" 
+        placeholder="Your password.." 
+        name="email"
+         class="py-2 px-4 rounded-sm bg-sensualMedium focus:border-b-2 text-blue focus:border-blue">
+         <span id="error"
+         class="text-red-700 text-[14px] font-mono font-bold "
+         *ngIf="loginForm.get('password')?.invalid && 
+         loginForm.get('password')?.touched &&
+         loginForm.get('password')?.errors?.['required']"
+
+        > <i class="fa-regular fa-circle-xmark"></i> Password is required</span>
+        </div>
+    <button [disabled]="loginForm.invalid" type="submit" class="flex text-lg font-semibold items-start py-2 rounded bg-[#f0651a] px-12">
+     Login
+    </button>
+    <p class="text-md text-blue">Don't have an account <a routerLink="register"  class="border-b-2 border-blue">Register</a></p>    
+</form>
+
+</div>

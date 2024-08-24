@@ -1,0 +1,22 @@
+#customspan{
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #f7f6fb;
+    object-fit: contain;
+    padding: 15px;
+    border: 2px solid whitesmoke;
+    transition: .3s ease-in;
+    
+}
+#customspan:hover{
+    border: 2px solid #14063b;
+}
+
+#filter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}

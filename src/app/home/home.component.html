@@ -1,0 +1,31 @@
+<div class="w-[80%] relative text-sensualdark2  m-auto my-[40px] flex flex-col">
+    <h1 class="text-[30px] opacity-70">Welcome🥳 to BuckPoint your one stop electronic retail shop</h1>
+    <h2 class="text-[22px] opacity-90">Feel free to browse our catalog</h2>
+</div>
+<div class="carousel-container" *ngIf="contents && contents.length > 0">
+    <div 
+     *ngFor="let content of contents;let i = index"
+      class="fade"
+      [ngClass]="{'div-active' : selectIndex === i}"
+    >
+        <img [src]="content.image" [alt]="content.imageAlt" class=" ">
+        <div class="details">
+            <h1>{{content.h1}}</h1>
+            <p> {{content.p}} </p>
+            <a href="{{content.link}}"> Jump To </a>
+        </div>
+    </div>
+    <div class="carousel-dot-container">
+        <span   
+        *ngFor="let content of contents;let i = index"
+        [ngClass]="{'active':selectIndex === i}"
+        (click)="selectContent(i)"
+        class="dot"> </span>
+    </div>
+    <button class="btn-carousel btn-prev"  (click)="onPreviousClick()">
+        <i class="fas fa-arrow-circle-left icon-carousel icon-prev"></i>
+    </button>
+    <button class="btn-carousel btn-next" (click)="onNextClick()">
+        <i class="fas fa-arrow-circle-right icon-carousel icon-next"></i>
+    </button>
+</div>

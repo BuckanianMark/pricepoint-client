@@ -1,0 +1,42 @@
+<div>
+<div *ngIf="product" class=" flex md:px-[50px] flex-col md:flex-row justify-evenly md:gap-[50px] mx-auto items-start mt-[50px] w-full">
+    <div class="md:w-[50%]  bg-sensualLight1 py-[50px] max-w-[400px] px-[20px] mx-auto rounded-md" >
+        <img src="{{product.productImage}}" alt="product.name" class="w-[200px]  md:w-full">
+    </div>
+    <div class="md:w-[50%] flex items-start flex-col mx-[20%] mt-6 md:mt-0 md:mx-0 justify-center text-sensualdark3 text-[19px] ">
+        <h1 class="font-semibold text-[22px] border-b-2 border-b-blue mb-4 capitalize text-blue">{{product.productName}}</h1>
+        <p class="text-[15px] tracking-wide"> {{product.description}} </p>
+        <span class="flex items-center flex-col justify-center mt-8 gap-3">
+            <p class="uppercase ">Quantity</p>
+            <span class="flex items-center justify-center gap-2">
+                <i 
+                (click)="decrementQuantity()"
+                class="fa fa-minus-circle text-sensualdark2 fa-2x"></i>
+                <p class="bg-sensualLight1 px-8 rounded-2xl font-bold shadow "> {{quantity}} </p>
+                <i 
+                (click)="incrementQuantity()"
+                class="fa fa-plus-circle fa-2x text-green-500"></i>
+            </span>
+        </span>
+        <button 
+        (click)="addItemToBasket()"
+        class="mt-6 bg-green-500 font-bold text-sensualLight1 border-2 duration-150 hover:border-green-500 hover:bg-sensualLight1 hover:text-green-400 px-4 py-2 rounded-xl">Add to cart </button>
+        <button><i class="fa fa-shopping -basket"></i></button>
+    </div>
+</div>
+<div class="md:mt-16 flex items-start flex-col  md:px-[50px]   mx-[20%] mt-6 md:mx-0">
+    <span class="flex items-center gap-5 justify-start " >
+    <p class="bg-sensualMedium text-sensualdark3  px-8 py-1 font-semibold rounded-md "> {{product.productBrand}} </p>
+    <p class="bg-gray-700 px-8 py-1 font-semibold rounded-md "> {{product.productType}} </p>
+</span>
+<ul>
+    <h1 class="font-bold border-b-2 mt-4 mb-2 border-sensualdark3 text-sensualdark3">Specifications</h1>
+    <li *ngFor="let spec of product?.productSpecs" class="text-sensualdark3">
+        {{spec}}
+        <i class="fa-solid fa-check font-semibold text-sensualdark2"></i>
+        
+    </li>
+</ul>
+</div>
+</div>
+

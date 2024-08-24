@@ -1,0 +1,123 @@
+<div class="shop-container ">
+  <div class="shop-row ">
+    
+    <section class="col-one ml-[20px] lg:ml-[50px] text-primary text-[18px]">
+    <h5 class="font-[600]">Sort</h5>
+    <select  
+    class="outline-none custom-shadow-1 border-2 rounded-md shadow- mt-[6px] px-[10px] border-[whitesmoke]">
+      <option *ngFor="let sort of sortOptions"
+      [value]="sort.value">
+     {{sort.name}}
+      </option>
+    </select>
+    </section>
+    <ng-container *ngIf="latestProducts">
+    <section class="col-two">
+      <div class="newest-products">
+        <h1 class="text-center text-blue font-[200] my-[15px] text-3xl"> Our Newest Heroes 🦸</h1>
+
+       <ul class="flex items-center justify-center flex-wrap mx-[30px]  " >
+        
+        <li *ngFor="let product of latestProducts " class="relative border-2 bg-[whitesmoke]" >
+       
+            <app-product-item [product]="product" ></app-product-item>
+         
+   
+       </li>
+       
+       </ul>
+       
+      </div>
+    </section>
+  </ng-container>
+  </div>
+</div>
+
+<ul id="filters"   class="flex gap-[20px] flex-wrap items-center justify-center mt-[20px] text-gray-800">
+  <div id="filter" >
+    
+  <span id="customspan">
+    <a routerLink="/shop/type/audio-products" >
+    <img src="../../../assets/headphoneicon.png" alt="">
+  </a>
+  </span>
+  
+    <span>Audio</span>
+    
+  </div>
+  <div id="filter" >
+
+    <span id="customspan">
+      <a routerLink="/shop/type/computing-products">
+    <img src="../../../assets/computericon.png">
+  </a>
+</span>
+    <span>Computing</span>
+  </div>
+
+  <div id="filter">
+    <span id="customspan">
+      <a routerLink="/shop/type/gaming-products" >
+    <img src="../../../assets/gameicon.png" >
+  </a>
+  </span>
+    <span>Gaming</span>
+  </div>
+  <div id="filter">
+    <span id="customspan">
+      <a routerLink="/shop/type/phones&tablets">
+    <img src="../../../assets/phoneicon.png">
+  </a>
+  </span>
+    <span>Phones & Tablets</span>
+  </div>
+  <div id="filter">
+    <span id="customspan">
+    <img src="../../../assets/tvicon.png"></span>
+    <span>Television</span>
+  </div>
+</ul>
+
+<div id="all-products">
+  <ul  class="flex flex-wrap justify-center items-center gap-[20px] mt-[20px]">
+    <li
+    *ngFor="let brand of brands" 
+     [class.active]="brand.id === this.shopParams.brandId"
+     [value]="brand.id"
+     (click)="onBrandSelected(brand.id)"
+     class="bg-darkblue cursor-pointer text-[17px] text-blue rounded-lg border-2 duration-150 py-1 px-2 hover:bg-white hover:border-darkblue">
+     {{brand.name}}
+    </li>
+  </ul>
+</div>
+<div>
+
+  <h1 class="text-center  text-blue font-[200] my-[15px] text-3xl">Our Products</h1>
+  
+  <!-- <app-search></app-search> -->
+  <div *ngIf="products">
+    <div id="search-container" class=" flex items-center justify-center mt-[20px] gap-[10px] relative">
+      <input 
+      #search
+      type="text" 
+      class="px-[25px] py-[5px] rounded-md text-sensualdark3" 
+      placeholder="Search for a product..">
+      <button
+      (keyup)="onSearch()"
+      (click)="onSearch()" 
+      class="text-darkblue bg-sensualLight1 font-semibold text-[17px] border-2 py-[2px] px-[5px] hover:bg-darkblue hover:text-[whitesmoke] transition-all duration-150 border-darkblue rounded-md">search </button>
+    
+      <button
+      (click)="onReset()" 
+    class="text-sensualdark2  border-sensualdark2 bg-sensualMedium text-[17px] font-semibold py-[2px] px-[5px]  border-2 rounded-md">Reset</button>
+  </div>
+  </div>
+<ul class="flex items-center justify-center flex-wrap mx-[30px]  mt-[40px]">
+  <li *ngFor="let product of products"  class="relative border-2 bg-[whitesmoke]">
+    <app-product-item [product]="product" ></app-product-item>
+  </li>
+</ul>
+<!-- <pagination>
+
+</pagination> -->
+</div>

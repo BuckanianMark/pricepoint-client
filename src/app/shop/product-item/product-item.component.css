@@ -1,0 +1,24 @@
+
+#product .imgbox{
+    transition: all 0.5s ease-in-out;
+}
+.imgbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    transform: translateX(20%);
+    
+}
+
+@media (min-width:1036px)
+{
+    #product:hover .imgbox{
+        transform: scale(1.1);
+    }
+}
+@media (max-width:500px){
+    #product{
+        width: 150px;
+    }
+}

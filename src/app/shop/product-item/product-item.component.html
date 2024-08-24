@@ -1,0 +1,22 @@
+<div id="product"  class="lg:w-[300px] w-[200px]  h-[250px] lg:h-[400px] justify-center items-center  flex flex-col" >
+  <img *ngIf="product?.latest === true" src="../../../assets/hottag.png" width="90" class="absolute top-[10px] right-[10px]">
+        
+
+            <img 
+            src="{{product.productImage}}" 
+            routerLink="/shop/{{product.id}}" 
+            alt="{{product.productName}}"
+             class="h-[60%] w-auto px-4 cursor-pointer mt-[20px] flex items-center justify-center">
+          
+          <div id="product-details" class="bottom-0 left-[10px]  pt-[20px]  lg:mt-[10px]  flex items-start justify-start text-sensualdark3 opacity-80 flex-col pb-[20px]">
+            <h3 class="font-[200] lg:text-2xl cursor-pointer" routerLink="/shop/{{product.id}}" >{{product.productName}}</h3>
+            <span class="lg:text-2xl font-bold text-[19px]"> {{product.price | currency}}</span>
+          </div>
+          <span class="absolute right-[5px] bottom-0 w-[30px] h-[30px] bg-sensualLight2 flex p-[5px] items-center justify-center rounded-full text-sensualdark3  ml-[10px] mb-[10px]">
+            <i 
+            (click)="addItemToBasket()"
+            class="fa fa-shopping-cart cursor-pointer" ></i>
+          </span>
+  
+   
+ </div>
