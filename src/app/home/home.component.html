@@ -1,16 +1,18 @@
 <div class="w-[80%] relative text-sensualdark2  m-auto my-[40px] flex flex-col">
-    <h1 class="text-[30px] opacity-70">Welcome🥳 to BuckPoint your one stop electronic retail shop</h1>
-    <h2 class="text-[22px] opacity-90">Feel free to browse our catalog</h2>
+    <h1 class="md:text-[30px] text-[20px] opacity-70">Welcome 🥳 to BuckPoint your one stop electronic retail shop</h1>
+    <h2 class="md:text-[22px] text-[16px] opacity-90">Feel free to browse our catalog</h2>
 </div>
 <div class="carousel-container" *ngIf="contents && contents.length > 0">
     <div 
      *ngFor="let content of contents;let i = index"
-      class="fade"
+      class="fade flex items-center justify-center flex-col md:flex-row"
       [ngClass]="{'div-active' : selectIndex === i}"
     >
-        <img [src]="content.image" [alt]="content.imageAlt" class=" ">
-        <div class="details">
-            <h1>{{content.h1}}</h1>
+    <div class="flex w-[40%] items-center justify-center h-1/2 ">
+        <img [src]="content.image" [alt]="content.imageAlt" class="w-[full]">
+    </div>
+        <div class="details flex w-[100%] items-center h-1/2  justify-start">
+            <h1 class="text-lg  sm:text-3xl">{{content.h1}}</h1>
             <p> {{content.p}} </p>
             <a href="{{content.link}}"> Jump To </a>
         </div>
